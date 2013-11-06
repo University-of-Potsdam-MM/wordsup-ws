@@ -67,10 +67,17 @@ $app->get("/topic", function () use ($app) {
 		);
 	}
 	else {
-		$result[] = array(
-			"status" => false,
-			"message" => "Topic with id $id does not exist"
-		);
+		if (array_key_exists("id", $data)) {
+			$result[] = array(
+				"status" => false,
+				"message" => "Topic with id $id does not exist"
+			);
+		} else {
+			$result[] = array(
+					"status" => false,
+					"message" => "Topic does not exist"
+			);
+		}
 	}
 	$app->response()->header("Content-Type", "application/json");
 	echo json_encode($result);
@@ -107,10 +114,17 @@ $app->get("/subtopic", function () use ($app) {
 		);
 	}
 	else {
-		$result[] = array(
-			"status" => false,
-			"message" => "Subtopic with id $id does not exist"
-		);
+		if (array_key_exists("id", $data)) {
+			$result[] = array(
+				"status" => false,
+				"message" => "Subtopic with id $id does not exist"
+			);
+		} else {
+			$result[] = array(
+					"status" => false,
+					"message" => "Subtopic does not exist"
+			);
+		}
 	}
 	$app->response()->header("Content-Type", "application/json");
 	echo json_encode($result);
@@ -167,10 +181,17 @@ $app->get("/term", function () use ($app) {
 		);
 	}
 	else {
-		$result[] = array(
-			"status" => false,
-			"message" => "Term with id $id does not exist"
-		);
+		if (array_key_exists("id", $data)) {
+			$result[] = array(
+				"status" => false,
+				"message" => "Term with id $id does not exist"
+			);
+		} else {
+			$result[] = array(
+					"status" => false,
+					"message" => "Term does not exist"
+			);
+		}
 	}
 	$app->response()->header("Content-Type", "application/json");
 	echo json_encode($result);
